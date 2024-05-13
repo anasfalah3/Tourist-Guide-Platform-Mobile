@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:Atleasy/screens/home.dart';
-// import 'package:flutter_travel_concept/widgets/icon_badge.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -25,12 +24,12 @@ class _MainScreenState extends State<MainScreen> {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            SizedBox(width: 7.0),
-            barIcon(icon: Icons.home, page: 0),
-            barIcon(icon: Icons.favorite, page: 1),
-            barIcon(icon: Icons.mode_comment, page: 2, badge: true),
-            barIcon(icon: Icons.person, page: 3),
-            SizedBox(width: 7.0),
+            SizedBox(width: 2.0),
+            barIcon(icon: Icons.home_outlined, page: 0),
+            barIcon(icon: Icons.search, page: 1),
+            barIcon(icon: Icons.person_pin, page: 2, badge: true),
+            barIcon(icon: Icons.menu, page: 3),
+            SizedBox(width: 2.0),
           ],
         ),
         color: Theme.of(context).primaryColor,
@@ -63,8 +62,8 @@ class _MainScreenState extends State<MainScreen> {
   Widget barIcon(
       {IconData icon = Icons.home, int page = 0, bool badge = false}) {
     return IconButton(
-      icon: Icon(icon, size: 24.0),
-      color: Colors.blueGrey[300],
+      icon: Icon(icon, size: 28.0),
+      color: Colors.blueGrey[800],
       onPressed: () => _pageController!.jumpToPage(page),
     );
   }

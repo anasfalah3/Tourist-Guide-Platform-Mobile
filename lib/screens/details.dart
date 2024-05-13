@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:Atleasy/util/places.dart';
-// import 'package:Atleasy/widgets/icon_badge.dart';
+import 'package:Atleasy/models/experience.dart';
 
 class Details extends StatelessWidget {
+  final Experience experience;
+
+  Details({required this.experience});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-          ),
+          icon: Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context),
         ),
         title: Image.asset(
@@ -18,16 +19,6 @@ class Details extends StatelessWidget {
           width: 150,
         ),
         centerTitle: true,
-        // actions: <Widget>[
-        //   IconButton(
-        //     icon: IconBadge(
-        //       icon: Icons.notifications_none,
-        //       size: 24.0,
-        //       color: Color.fromARGB(255, 236, 0, 0),
-        //     ),
-        //     onPressed: () {},
-        //   ),
-        // ],
       ),
       body: ListView(
         children: <Widget>[
@@ -46,7 +37,7 @@ class Details extends StatelessWidget {
                   Container(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      "${experiences[0]["name"]}",
+                      "${experience.title}",
                       style: TextStyle(
                         fontWeight: FontWeight.w700,
                         fontSize: 20,
@@ -56,9 +47,7 @@ class Details extends StatelessWidget {
                     ),
                   ),
                   IconButton(
-                    icon: Icon(
-                      Icons.bookmark,
-                    ),
+                    icon: Icon(Icons.bookmark),
                     onPressed: () {},
                   ),
                 ],
@@ -74,7 +63,7 @@ class Details extends StatelessWidget {
                   Container(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      "${experiences[0]["location"]}",
+                      "${experience.city}",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 13,
@@ -90,7 +79,7 @@ class Details extends StatelessWidget {
               Container(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "${experiences[0]["price"]}",
+                  "${experience.price}\$/person",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 17,
@@ -116,7 +105,7 @@ class Details extends StatelessWidget {
               Container(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "${experiences[0]["details"]}",
+                  "${experience.description}",
                   style: TextStyle(
                     fontWeight: FontWeight.normal,
                     fontSize: 15.0,
@@ -130,9 +119,7 @@ class Details extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(
-          Icons.sell
-        ),
+        child: Icon(Icons.sell),
         onPressed: () {},
       ),
     );
@@ -145,16 +132,14 @@ class Details extends StatelessWidget {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         primary: false,
-        itemCount: experiences == null ? 0 : experiences.length,
+        itemCount: 1, // Just to display one image
         itemBuilder: (BuildContext context, int index) {
-          Map place = experiences[index];
-
           return Padding(
             padding: EdgeInsets.only(right: 10.0),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10.0),
-              child: Image.asset(
-                "${place["img"]}",
+              child: Image.network(
+                "${experience.img}",
                 height: 250.0,
                 width: MediaQuery.of(context).size.width - 40.0,
                 fit: BoxFit.cover,

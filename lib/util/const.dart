@@ -22,13 +22,6 @@ class Constants {
     scaffoldBackgroundColor: lightBG,
     appBarTheme: AppBarTheme(
       elevation: 0,
-      // textTheme: TextTheme(
-      //   headline6: TextStyle(
-      //     color: darkBG,
-      //     fontSize: 18.0,
-      //     fontWeight: FontWeight.w800,
-      //   ),
-      // ),
     ),
   );
 
@@ -41,13 +34,6 @@ class Constants {
     // cursorColor: darkAccent,
     appBarTheme: AppBarTheme(
       elevation: 0,
-      // textTheme: TextTheme(
-      //   headline6: TextStyle(
-      //     color: lightBG,
-      //     fontSize: 18.0,
-      //     fontWeight: FontWeight.w800,
-      //   ),
-      // ),
     ),
   );
 }

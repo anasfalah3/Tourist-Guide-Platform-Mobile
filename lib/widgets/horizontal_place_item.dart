@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-
-import '../screens/details.dart';
+import 'package:Atleasy/models/location.dart';
 
 class HorizontalPlaceItem extends StatelessWidget {
-  final Map place;
+  final Location location;
 
-  HorizontalPlaceItem({required this.place});
+  HorizontalPlaceItem({required this.location});
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +18,8 @@ class HorizontalPlaceItem extends StatelessWidget {
             children: <Widget>[
               ClipRRect(
                 borderRadius: BorderRadius.circular(10),
-                child: Image.asset(
-                  "${place["img"]}",
+                child: Image.network(
+                  "${location.img}", // Use the imageUrl property of the Location model
                   height: 178.0,
                   width: 140.0,
                   fit: BoxFit.cover,
@@ -30,7 +29,7 @@ class HorizontalPlaceItem extends StatelessWidget {
               Container(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "${place["name"]}",
+                  "${location.name}",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 15.0,
@@ -43,7 +42,7 @@ class HorizontalPlaceItem extends StatelessWidget {
               Container(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "${place["location"]}",
+                  "${location.city}",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 13.0,
@@ -56,15 +55,6 @@ class HorizontalPlaceItem extends StatelessWidget {
             ],
           ),
         ),
-        onTap: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (BuildContext context) {
-                return Details();
-              },
-            ),
-          );
-        },
       ),
     );
   }

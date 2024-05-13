@@ -9,7 +9,7 @@ class Search_Bar extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.blueGrey[50],
         borderRadius: BorderRadius.all(
-          Radius.circular(5.0),
+          Radius.circular(30.0),
         ),
       ),
       child: TextField(
@@ -20,7 +20,7 @@ class Search_Bar extends StatelessWidget {
         decoration: InputDecoration(
           contentPadding: EdgeInsets.all(10.0),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5.0),
+            borderRadius: BorderRadius.circular(30.0),
             borderSide: BorderSide(
               color: Colors.white,
             ),
@@ -29,7 +29,7 @@ class Search_Bar extends StatelessWidget {
             borderSide: BorderSide(
               color: Colors.white,
             ),
-            borderRadius: BorderRadius.circular(5.0),
+            borderRadius: BorderRadius.circular(30.0),
           ),
           hintText: "E.g: Imlil, Ourika",
           prefixIcon: Icon(
